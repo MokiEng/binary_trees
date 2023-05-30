@@ -25,13 +25,5 @@ size_t binary_tree_nodes(const binary_tree_t *tree)
 
 	/* Recursively calculate no. of nodes in z left and right subtrees */
 
-	size_t left_nodes = binary_tree_nodes(tree->left);
-	size_t right_nodes = binary_tree_nodes(tree->right);
-
-	/**
-	 * Return the sum of nodes in left and right subtrees plus
-	 *	1 for the current node.
-	 */
-
-	return (left_nodes + right_nodes + 1);
+	return (binary_tree_leaves(tree->left) + binary_tree_leaves(tree->right));
 }
