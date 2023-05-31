@@ -9,47 +9,51 @@
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
+	size_t height = 0;
+	size_t nodes = 0;
+	size_t power = 0;
+
 	if (tree == NULL)
-	{
-		return (0);/* If tree is NULL, return 0 */
-	}
+		return (0);
 
-	/* Calculate the height of the tree */
-	int height = binary_tree_height(tree);
+	if (tree->right == NULL && tree->left == NULL)
+		return (1);
 
-	/* Check if the tree is perfect */
+	height = binary_tree_height(tree);
+	nodes = binary_tree_size(tree);
 
-	return (is_perfect_recursive(tree, height, 0));
+	power = (size_t)_pow_recursion(2, height + 1);
+	return (power - 1 == nodes);
 }
 /**
-* is_perfect_recursive - a function Check if we have reached the last level.
-* @node: the node of binary tree.
-* @height: height of the tree.
-* @level: level of the tree.
-* Return: NULL if tree is not perfect.
-*/
-int is_perfect_recursive(const binary_tree_t *node, int height, int level)
+ *_pow_recursion - returns the value of x raised to the power of y
+ *@x: the value to exponentiate
+ *@y: the power to raise x to
+ *Return: x to the power of y, or -1 if y is negative
+ */
+
+int _pow_recursion(int x, int y)
 {
-	/* Check if we have reached the last level */
-	if (level == height - 1)
-	{
-		/* Check if the node is a leaf node */
-		if (node->left == NULL && node->right == NULL)
-		{
-			return (1);
-		}
-		else
-		{
-			return (0);
-		}
-	}
+	if (y < 0)
+		return (-1);
+	if (y == 0)
+		return (1);
+	else
+		return (x * _pow_recursion(x, y - 1));
 
-	/* Recursively check if the left and right subtrees are perfect */
-	if (node->left && node->right)
-	{
-		return (is_perfect_recursive(node->left, height, level + 1) &&
-				is_perfect_recursive(node->right, height, level + 1));
-	}
+}
 
-	return (0);/* One of the subtrees is missing, the tree is not perfect */
+/**
+ * binary_tree_size - measures the size of a binary tree
+ * @tree: tree to measure the size of
+ *
+ * Return: size of the tree
+ *         0 if tree is NULL
+ */
+size_t binary_tree_size(const binary_tree_t *tree)
+{
+	if (!tree)
+		return (0);
+
+	return (binary_tree_size(tree->left) + binary_tree_size(tree->right) + 1);
 }
