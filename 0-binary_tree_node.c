@@ -4,7 +4,7 @@
 /**
  * binary_tree_node - a  function that creates a binary tree node.
  *
- * @parent: A pointer to the parent node.
+ * @parent: a pointer to the parent node.
  * @value: The value to be puted on the new node.
  *
  * Return: If it fails - NULL else - a pointer to the new node.
