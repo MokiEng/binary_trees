@@ -21,6 +21,13 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 
 	return (is_perfect_recursive(tree, height, 0));
 }
+/**
+* is_perfect_recursive - a function Check if we have reached the last level.
+* @node: the node of binary tree.
+* @height: height of the tree.
+* @level: level of the tree.
+* Return: NULL if tree is not perfect.
+*/
 int is_perfect_recursive(const binary_tree_t *node, int height, int level)
 {
 	/* Check if we have reached the last level */
