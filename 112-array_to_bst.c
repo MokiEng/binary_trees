@@ -1,5 +1,8 @@
 #include "binary_trees.h"
 
+bst_t *array_to_bst(int *array, size_t size);
+bst_t *insert_bst_node(bst_t *root, int value);
+
 /**
  * array_to_bst - a function that builds a Binary Search Tree from an array
  *
@@ -42,4 +45,27 @@ bst_t *array_to_bst(int *array, size_t size)
 		}
 	}
 	return (root)
+}
+/**
+* bst_t *insert_bst_node - a function that insert best node.
+* @root: the root
+* @value: the value
+*Return: created bst node if root is NULL,otherwise root.
+*/
+bst_t *insert_bst_node(bst_t *root, int value)
+{
+	if (root == NULL)
+	{
+		return (create_bst_node(value));
+	}
+
+	if (value < root->data)
+	{ 
+		root->left = insert_bst_node(root->left, value);
+	}
+	else if (value > root->data)
+	{
+		root->right = insert_bst_node(root->right, value);
+	}
+	return (root);
 }
