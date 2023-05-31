@@ -10,7 +10,7 @@
  */
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree)
 {
-  binary_tree_t *tmp, *pivot;
+	binary_tree_t *tmp, *pivot;
 
 	if (tree == NULL || tree->right == NULL)
 	{
