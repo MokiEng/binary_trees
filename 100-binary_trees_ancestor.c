@@ -19,18 +19,18 @@
         if (dep_first == NULL || dep_second == NULL)
 		return (NULL);
 
-	depth_first = binary_tree_depth(first);
-	depth_second = binary_tree_depth(second);
+	dep_firstt = binary_tree_depth(first);
+	dep_second = binary_tree_depth(second);
 
-	while (depth_first > depth_second)
+	while (dep_first > dep_second)
 	{
 		first = first->parent;
-		depth_first--;
+		dep_first--;
 	}
-	while (depth_second > depth_first)
+	while (dep_second > dep_first)
 	{
 		second = second->parent;
-		depth_second--;
+		dep_second--;
 	}
 	while (first && second)
 	{
