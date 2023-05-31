@@ -60,7 +60,8 @@ bst_t *insert_bst_node(bst_t *root, int value)
 	}
 
 	if (value < root->data)
-	{ 
+
+	{
 		root->left = insert_bst_node(root->left, value);
 	}
 	else if (value > root->data)
