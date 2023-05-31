@@ -44,7 +44,7 @@ bst_t *array_to_bst(int *array, size_t size)
 			root = insert_bst_node(root, value);
 		}
 	}
-	return (root)
+	return (root);
 }
 /**
 * bst_t *insert_bst_node - a function that insert best node.
