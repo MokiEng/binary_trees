@@ -10,7 +10,7 @@
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-  size_t level, maximum_level;
+	size_t level, maximum_level;
 
 	if (tree == NULL || func == NULL)
 		return;
@@ -22,7 +22,8 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 }
 
 /**
- * btlo_helper - a function thst goes through a binary tree using post-order traverse
+ * btlo_helper - a function thst goes through a binary tree
+ *	using post-order traverse
  * @tree: tree to traverse
  * @func: pointer to a function to call for each node
  * @level: the level of the tree to call func upon
