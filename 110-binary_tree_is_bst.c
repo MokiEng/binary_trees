@@ -27,6 +27,6 @@ bool is_bst_util(const binary_tree_t *node, int min_val, int max_val)
 		return (true);
 	if (node->n <= min_val || node->n >= max_val)
 		return (false);
-	return (is_bst_util(node->left, min_val, node->n) &&
-			is_bst_util(node->right, node->n, max_val));
+	return (is_bst_util(node->left, min_val, node->n - 1) &&
+			is_bst_util(node->right, node->n + 1, max_val));
 }
