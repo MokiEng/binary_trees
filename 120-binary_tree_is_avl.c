@@ -1,9 +1,5 @@
 #include "binary_trees.h"
 
-int binary_tree_is_avl(const binary_tree_t *tree);
-int is_bst_helper(const binary_tree_t *node, int min_value,
-		int max_value);
-size_t binary_tree_height(const binary_tree_t *tree);
 
 /**
  * binary_tree_is_avl - a function that checks if a
