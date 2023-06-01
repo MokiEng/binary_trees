@@ -1,8 +1,5 @@
 #include "binary_trees.h"
 
-bst_t *array_to_bst(int *array, size_t size);
-bst_t *insert_bst_node(bst_t *root, int value);
-
 /**
  * array_to_bst - a function that builds a Binary Search Tree from an array
  *
@@ -13,11 +10,11 @@ bst_t *insert_bst_node(bst_t *root, int value);
  */
 bst_t *array_to_bst(int *array, size_t size)
 {
-	bst_t *root = NULL;
+	bst_t *base = NULL;
 	unsigned int j;
 
 	for (j = 0; j < size; j++)
-		bst_insert(&root, array[j]);
+		bst_insert(&base, array[j]);
 
-	return (root);
+	return (base);
 }
