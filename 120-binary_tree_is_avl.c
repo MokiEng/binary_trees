@@ -1,11 +1,13 @@
 #include "binary_trees.h"
 
 int binary_tree_is_avl(const binary_tree_t *tree);
-int is_bst_helper(const binary_tree_t *node, int min_value, int max_value);
+int is_bst_helper(const binary_tree_t *node, int min_value,
+		int max_value);
 size_t binary_tree_height(const binary_tree_t *tree);
 
 /**
- * binary_tree_is_avl - Ca function that checks if a binary tree is a valid AVL Tree
+ * binary_tree_is_avl - a function that checks if a
+ *	binary tree is a valid AVL Tree
  *
  * @tree: a pointer to the root node of the tree to check.
  *
@@ -14,46 +16,54 @@ size_t binary_tree_height(const binary_tree_t *tree);
  */
 int binary_tree_is_avl(const binary_tree_t *tree)
 {
-         if (tree == NULL) 
-         {
-        return 0; 
-    }
+	if (tree == NULL)
+	{
+		return (0);
+	}
 
-    int left_height = get_height(tree->left);
-    int right_height = get_height(tree->right);
+	int left_height = get_height(tree->left);
+	int right_height = get_height(tree->right);
 
-    if (abs(left_height - right_height) > 1)
-    {
-        return 0;  
-    }
+	if (abs(left_height - right_height) > 1)
+	{
+		return (0);
+	}
 
-    if (!binary_tree_is_avl(tree->left) || !binary_tree_is_avl(tree->right) ||
-        !is_bst_helper(tree->left, INT_MIN, tree->value) ||
-        !is_bst_helper(tree->right, tree->value, INT_MAX)) 
-        {
-        return 0;  
-    }
+	if (!binary_tree_is_avl(tree->left) || !binary_tree_is_avl(tree->right)
+			|| !is_bst_helper(tree->left, INT_MIN, tree->value) ||
+			!is_bst_helper(tree->right, tree->value, INT_MAX))
+	{
+		return (0);
+	}
 
-    return 1; 
+	return (1);
 }
-}
 
+/**
+ * is_bst_helper -a recursive helper function that takes a binar
+ *		tree node along with a minimum value and a maximum value.
+ * @node: a binary tree node.
+ * @min_value: the minimum value.
+ * @max_value: the maximum value.
+ *
+ * Return: 1 if tree is a valid BST, 0 otherwise
+ */
 int is_bst_helper(const binary_tree_t *node, int min_value, int max_value)
 {
-if (node == NULL) 
-{
-        return 1; 
-        }
-    
-    if (node->n <= min_value || node->n >= max_value)
-    {
-        return 0; 
-    }
-    
-    int left_subtree = is_bst_helper(node->left, min_value, node->n);
-    int right_subtree = is_bst_helper(node->right, node->n, max_value);
-    
-    return (left_subtree && right_subtree);
+	if (node == NULL)
+	{
+		return (1);
+	}
+
+	if (node->n <= min_value || node->n >= max_value)
+	{
+		return (0);
+	}
+
+	int left_subtree = is_bst_helper(node->left, min_value, node->n);
+	int right_subtree = is_bst_helper(node->right, node->n, max_value);
+
+	return (left_subtree && right_subtree);
 }
 
 /**
