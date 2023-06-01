@@ -19,14 +19,14 @@ int binary_tree_is_bst(const binary_tree_t *tree)
  * @min_val: the minimum value.
  * @max_val: the maximum value.
  *
- * Return: the rotated subtree at the given node.
+ * Return: 1 if tree is a valid BST, 0 otherwise
  */
 bool is_bst_util(const binary_tree_t *node, int min_val, int max_val)
 {
 	if (node == NULL)
 		return (true);
-	if (node->val <= min_val || node->val >= max_val)
+	if (node->n <= min_val || node->n >= max_val)
 		return (false);
-	return (is_bst_util(node->left, min_val, node->val) &&
-			is_bst_util(node->right, node->val, max_val));
+	return (is_bst_util(node->left, min_val, node->n) &&
+			is_bst_util(node->right, node->n, max_val));
 }
