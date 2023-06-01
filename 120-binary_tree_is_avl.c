@@ -35,6 +35,8 @@ int binary_tree_is_avl(const binary_tree_t *tree)
  */
 int is_bst_helper(const binary_tree_t *node, int min_value, int max_value)
 {
+	int left_subtree, right_subtree;
+
 	if (node == NULL)
 	{
 		return (1);
@@ -45,8 +47,8 @@ int is_bst_helper(const binary_tree_t *node, int min_value, int max_value)
 		return (0);
 	}
 
-	int left_subtree = tree->left ? 1 + binary_tree_height(tree->left) : 0;
-	int right_subtree = tree->right ? 1 + binary_tree_height(tree->right) : 0;
+	left_subtree = tree->left ? 1 + binary_tree_height(tree->left) : 0;
+	right_subtree = tree->right ? 1 + binary_tree_height(tree->right) : 0;
 
 	if (abs(left_subtree - right_subtree) > 1)
 		return (0);
