@@ -79,7 +79,7 @@ int remove_type(bst_t *root)
 		return (two_children(root));
 }
 /**
- * bst_remove - remove a node from a BST tree
+ * bst_remove - a function that removes a node from a Binary Search Tree
  * @root: root of the tree
  * @value: node with this value to remove
  * Return: the tree changed
