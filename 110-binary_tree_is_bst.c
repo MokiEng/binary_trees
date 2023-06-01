@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 int binary_tree_is_bst(const binary_tree_t *tree);
-bool is_bst_util(const binary_tree_t *tree, int min_val, int max_val);
+int is_bst_helper(const binary_tree_t *node, int min_val, int max_val);
 
 /**
  * binary_tree_is_bst - a function that checks if a binary tree is
@@ -17,7 +17,7 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 	return (is_bst_util(tree, INT_MIN, INT_MAX));
 }
 /**
- * is_bst_util -function is a recursive helper function that takes a binar
+ * is_bst_helper -a recursive helper function that takes a binar
  *		tree node along with a minimum value and a maximum value.
  * @node: a binary tree node.
  * @min_val: the minimum value.
@@ -25,12 +25,12 @@ int binary_tree_is_bst(const binary_tree_t *tree)
  *
  * Return: 1 if tree is a valid BST, 0 otherwise
  */
-bool is_bst_util(const binary_tree_t *tree, int min_val, int max_val)
+int is_bst_helper(const binary_tree_t *node, int min_val, int max_val)
 {
-	if (tree == NULL)
-		return (true);
-	if (tree->n <= min_val || tree->n >= max_val)
-		return (false);
-	return (is_bst_util(tree->left, min_val, tree->n - 1) &&
-			is_bst_util(tree->right, tree->n + 1, max_val));
+	if (node == NULL)
+		return (1);
+	if (node->n <= min_val || node->n >= max_val)
+		return (0);
+	return (is_bst_helper(node->left, min_val, node->n - 1) &&
+			is_bst_helper(node->right, node->n + 1, max_val));
 }
