@@ -45,7 +45,7 @@ int is_bst_helper(const binary_tree_t *node, int min_value, int max_value)
 		return (0);
 	}
 
-	int left_subtree = node->left ? 1 + binary_tree_height(node->left) : 0;
+	int left_subtree = tree->left ? 1 + binary_tree_height(tree->left) : 0;
 	int right_subtree = tree->right ? 1 + binary_tree_height(tree->right) : 0;
 
 	if (abs(left_subtree - right_subtree) > 1)
