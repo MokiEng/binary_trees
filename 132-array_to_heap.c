@@ -9,12 +9,12 @@
  * Return: a pointer to the root node of the created one, NULL on failure.
  */
 heap_t *array_to_heap(int *array, size_t size)
-{
-      unsigned int i;
-	heap_t *tree = NULL;
 
-	for (i = 0; i < size; index++)
-		heap_insert(&tree, array[i]);
+	unsigned int i;
+	heap_t *node = NULL;
 
-	return (tree);
+	for (i = 0; i < size; i++)
+		heap_insert(&node, array[i]);
+
+	return (node);
 }
