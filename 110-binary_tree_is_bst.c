@@ -21,12 +21,12 @@ int binary_tree_is_bst(const binary_tree_t *tree)
  *
  * Return: 1 if tree is a valid BST, 0 otherwise
  */
-bool is_bst_util(const binary_tree_t *node, int min_val, int max_val)
+bool is_bst_util(const binary_tree_t *tree, int min_val, int max_val)
 {
-	if (node == NULL)
+	if (tree == NULL)
 		return (true);
-	if (node->n <= min_val || node->n >= max_val)
+	if (tree->n <= min_val || tree->n >= max_val)
 		return (false);
-	return (is_bst_util(node->left, min_val, node->n - 1) &&
-			is_bst_util(node->right, node->n + 1, max_val));
+	return (is_bst_util(tree->left, min_val, tree->n - 1) &&
+			is_bst_util(tree->right, tree->n + 1, max_val));
 }
