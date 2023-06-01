@@ -10,11 +10,11 @@
  */
 avl_t *array_to_avl(int *array, size_t size)
 {
-	unsigned int i;
-	avl_t *root = NULL;
+	avl_t *node = NULL;
+	unsigned int j;
 
-	for (i = 0; i < size; i++)
-		avl_insert(&root, array[i]);
+	for (j = 0; j < size; j++)
+		avl_insert(&node, array[j]);
 
-	return (root);
+	return (node);
 }
