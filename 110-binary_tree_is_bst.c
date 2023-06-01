@@ -31,6 +31,6 @@ int is_bst_helper(const binary_tree_t *node, int min_val, int max_val)
 		return (1);
 	if (node->n <= min_val || node->n >= max_val)
 		return (0);
-	return (is_bst_helper(node->left, min_val, node->n - 1) &&
-			is_bst_helper(node->right, node->n + 1, max_val));
+	return (is_bst_helper(node->left, min_val, node->n) &&
+			is_bst_helper(node->right, node->n, max_val));
 }
